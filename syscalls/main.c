@@ -1,6 +1,5 @@
 #include <dlfcn.h>
 #include <stdio.h>
-
 int main(){
     void *handle = 0;
     handle = dlopen("./A.so", RTLD_LAZY);
