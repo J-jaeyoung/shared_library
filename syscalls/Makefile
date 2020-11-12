@@ -4,3 +4,6 @@ main: main.c
 
 so: A.c
 	gcc -shared -fpic -o A.so A.c
+
+clean:
+	rm -f *.so main
