@@ -2,5 +2,5 @@ all:
 	gcc -o gethostname gethostname.c
 
 clean:
-	rmdir `hostname`
 	rm gethostname
+	rmdir `hostname` 2> /dev/null
