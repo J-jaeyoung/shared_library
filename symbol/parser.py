@@ -21,14 +21,13 @@ result = subprocess.check_output(f"objdump -T {so}", shell=True).decode()[:-1]
 result = result.split("\n")
 symbol = []
 for line in result:
+    sym = line.split(' ')[-1]
+    if sym in black or sym.startswith("_"):
+        continue
     if ".text" in line:
-        sym = line.split(' ')[-1]
-        if sym in black or sym.startswith("_"):
-            continue
         fake_sym = "void " + sym + "(){};\n"
         symbol.append(fake_sym)
     elif ".data" in line or ".bss" in line:
-        sym = line.split(' ')[-1]
         fake_sym = "int " + sym + ";"
         symbol.append(fake_sym)
 
